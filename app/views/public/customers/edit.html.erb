@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row">
+    <div class="col-9 mx-auto">
+      <h4><strong>会員情報編集</strong></h4>
+
+      <%= form_with model: @customer, method: :patch, local:true do |f| %>
+      <div class="shadow-lg px-5 py-5 mt-4">
+       <table class="table　table-borderless table-sm ml-5">
+        <tr>
+          <th>名前</th>
+          <th>(姓)</th>
+          <th class="field">
+            <%= f.text_field :family_name %>
+            <%= f.label "(名)", class: "ml-5" %>
+            <%= f.text_field :first_name, class: "ml-3" %>
+          </th>
+        </tr>
+        <tr>
+          <th>フリガナ</th>
+          <th>(セイ)</th>
+          <th class="field">
+            <%= f.text_field :family_name_kana %>
+            <%= f.label "(メイ)", class: "ml-5" %>
+            <%= f.text_field :first_name_kana %>
+          </th>
+        </tr>
+        <tr>
+          <th>郵便番号</th>
+          <th></th>
+          <th class="field">
+            <%= f.text_field :post_code %>
+          </th>
+        </tr>
+        <tr>
+          <th>住所</th>
+          <th></th>
+          <th class="field">
+            <%= f.text_field :address, size: 60 %>
+          </th>
+        </tr>
+        <tr>
+          <th>電話番号</th>
+          <th></th>
+          <th class="field">
+            <%= f.text_field :phone %>
+          </th>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <th></th>
+          <th class="field">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </th>
+        </tr>
+      </table>
+    </div>
+      <div class="actions mt-3 text-center">
+        <%= f.submit '編集内容を保存', class: "btn btn-success mr-5" %>
+        <%= link_to unsubscribe_customers_path, class: "ml-5" do %>
+         <button type="button" class="btn btn-danger">退会する</button>
+        <% end %>
+      </div>
+     <% end %>
+   </div>
+  </div>
+</div>

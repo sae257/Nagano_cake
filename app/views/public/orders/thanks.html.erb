@@ -1,0 +1,21 @@
+<div class = "container-fluid">
+  <div class = "text-center">
+      <h1 class ="mt-3">Thank you!</h1>
+      <h2 class = "mt-2">ご注文ありがとうございました</h2>
+      <%= image_tag 'rabbit_pekori.jpg', :size => '200x200' %>
+
+      <h3 class="mt-5">こちらの商品もいかがですか？</h3>
+  </div>
+</div>
+
+    <div class="row">
+      <% @item.each do |item| %>
+        <div class="mx-auto col-2 text-center">
+        <%= link_to item_path(item), class: "col-3 text-dark" do %>
+        <%= image_tag item.image, :size => '200' %><br>
+        <%= item.name %><br>
+        ￥<%= item.price.to_s(:delimited) %>
+        <% end %>
+        </div>
+      <% end %>
+    </div>

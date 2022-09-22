@@ -1,0 +1,20 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-md-2 d-flex align-items-center justify-content-center">
+      <%= render "public/items/sidebar", genres: @genres %>
+    </div>
+    <div class="col-md-10">
+      <h4 class="mt-5"><strong><%= @genre.name %>一覧</strong><span class="font">(全<%= @genreitems.count %>件)</span></h4>
+      <div class="row mx-auto">
+		  	<% @genreitems.each do |item| %>
+			  	<%= link_to item_path(item.id), data: {"turbolinks" => false}, class: "col-3 text-center text-dark text-nowrap mt-5" do %>
+						<%= image_tag item.image, :size => '200x150' %><br>
+						<%= item.name %><br>
+						￥<%= item.price.to_s(:delimited) %>
+					<% end %>
+			<% end %>
+			</div>
+			<div class="col-md-5 mx-auto"><%= paginate @genreitems %></div>
+		</div>
+	</div>
+</div>

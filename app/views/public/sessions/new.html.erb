@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-5 px-0 mx-auto">
+      <div class="mb-4">
+      <h4><strong>ログイン</strong></h4>
+     </div>
+       <div class="row">
+        <p style="background-color:#EEEEEE">会員の方はこちらからログイン</p>
+       </div>
+
+        <%= form_with model: @customer, url: customer_session_path do |f| %>
+         <div class="field form-group">
+          <%= f.label "メールアドレス" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: "sample@example.com" %>
+         </div>
+
+         <div class="field">
+          <%= f.label "パスワード" %>
+          <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
+         </div>
+
+         <div class="actions">
+          <%= f.submit "ログイン", class: "btn btn-primary" %>
+         </div>
+       <% end %>
+
+      <div class="row mt-5 mb-2">
+       <h6 style="background-color:#EEEEEE">会員登録がお済みでない方</h6>
+      </div>
+     <p class="ml-4"><%= link_to "こちら", new_customer_registration_path %>から新規登録を行ってください。</p>
+    </div>
+  </div>
+</div>
